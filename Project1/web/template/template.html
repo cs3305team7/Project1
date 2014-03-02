@@ -1,0 +1,130 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    
+    <% 
+        Page p = new Page("","");
+       // out.print(p.createPage());
+    %>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>CMS TEMPLATE1</title>
+		
+        <link rel="stylesheet" href="stylesheet.css" <!--href="../../stylesheets/stylesheetOne.css"--> />
+
+	</head>
+	<body>
+                
+	  <div id="wrapper">
+	   <div id="edit2" contenteditable="true">
+		<header id="HEADER">
+			<% out.print(p.Get("HEADER"));%>
+			
+		</header>
+		</div> <!--end of header div-->
+		
+                    <nav id="EDITABLENAV">
+                        <% out.print(p.Get("EDITABLENAV"));%>
+						
+					</nav>
+
+                    <aside id="PICS">
+                        <% out.print(p.Get("PICS"));%>
+					</aside>
+
+
+                    <div id="CONTENT">
+                        <% out.print(p.Get("CONTENT"));%>
+						<form action="file" method="Post">
+						  <div id="toolbar" style="display: none;">
+						  <a data-wysihtml5-action="change_view">html view</a> <br> <br>
+							<a data-wysihtml5-command="bold" title="CTRL+B">bold</a> |
+							<a data-wysihtml5-command="italic" title="CTRL+I">italic</a> |
+							<a data-wysihtml5-command="createLink">insert link</a> |
+							<a data-wysihtml5-command="insertImage">insert image</a> |
+							<a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1">h1</a> |
+							<a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2">h2</a> |
+							<a data-wysihtml5-command="insertUnorderedList">insertUnorderedList</a> |
+							<a data-wysihtml5-command="insertOrderedList">insertOrderedList</a> |
+							<a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="red">red</a> |
+							<a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="green">green</a> |
+							<a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="blue">blue</a> 
+							<!-- <a data-wysihtml5-command="undo">undo</a> |
+							<a data-wysihtml5-command="redo">redo</a> -->
+							<!--<a data-wysihtml5-command="insertSpeech">speech</a>-->
+							
+							
+							<div data-wysihtml5-dialog="createLink" style="display: none;">
+							  <label>
+								Link:
+								<input data-wysihtml5-dialog-field="href" value="http://">
+							  </label>
+							  <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a>
+							</div>
+							
+							<div data-wysihtml5-dialog="insertImage" style="display: none;">
+							  <label>
+								Image:
+								<input data-wysihtml5-dialog-field="src" value="http://">
+							  </label>
+							  <label>
+								Align:
+								<select data-wysihtml5-dialog-field="className">
+								  <option value="">default</option>
+								  <option value="wysiwyg-float-left">left</option>
+								  <option value="wysiwyg-float-right">right</option>
+								</select>
+							  </label>
+							  <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a>
+							</div>
+						  </div> <!--end of toolbar div of text Editor-->
+						  <textarea id="textarea" placeholder="Enter text ..."></textarea>
+						  <br><input class="buttons" type="reset" value="Reset form!">
+						  <input class="buttons" type="submit" value="Submit!">
+						</form><!--End of form -->
+						<div id="log"></div>
+							<script src="rules/advanced.js"></script>
+							<script src="lib/wysihtml5-0.4.0pre.js"></script>
+							<script>
+							  var editor = new wysihtml5.Editor("textarea", {
+								toolbar:        "toolbar",
+								stylesheets:    "stylesheet.css",
+								parserRules:    wysihtml5ParserRules
+							  });
+							  
+							  var log = document.getElementById("log");
+							  
+							  editor
+								.on("load", function() {
+								  log.innerHTML += "";
+								})
+								.on("focus", function() {
+								  log.innerHTML += "";
+								})
+								.on("blur", function() {
+								  log.innerHTML += "";
+								})
+								.on("change", function() {
+								  log.innerHTML += "";
+								})
+								.on("paste", function() {
+								  log.innerHTML += "";
+								})
+								.on("newword:composer", function() {
+								  log.innerHTML += "";
+								})
+								.on("undo:composer", function() {
+								  log.innerHTML += "";
+								})
+								.on("redo:composer", function() {
+								  log.innerHTML += "";
+								});
+							</script>
+                    </div><!--End of CONTENT div-->
+					<footer id="FOOTER">
+						<% out.print(p.Get("FOOTER"));%>
+					</footer>
+		</div> <!--end of wrapper-->            
+	</body>
+</html>
+
