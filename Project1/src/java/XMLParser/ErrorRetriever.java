@@ -41,7 +41,8 @@ public class ErrorRetriever {
              e=(Element)nodes.item(i);
              if(e!=null){
                  if(!e.getAttribute("name").equals(errRequired)){
-                     e.getElementsByTagName("value");
+                     //e.getElementsByTagName("value");
+                     //add a value tag rather than an attribute
                      return e.getAttribute("value");
                  }
              }
