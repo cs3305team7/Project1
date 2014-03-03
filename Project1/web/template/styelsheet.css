@@ -1,8 +1,9 @@
 body
 {
-	background-image: url(bkground.jpg);
+	background-color:#FF9999;
 	font-family: Verdana;
     font-size: 11px;
+	color: white;
 	/**margin-left:auto;
 	margin-right:auto;*/
 	width:70%;
@@ -12,15 +13,28 @@ body
 	margin-left: auto;
 	margin-right: auto;
 	width: 760px;
-	background-color: #FFF0F5;
+	background-color: #D8D8D8;
 	border-radius: 12px; 
 	padding: 12px;
 }
-
+#destination{
+	padding-bottom: 15px;
+	text-align: center;
+	color: black;
+	
+}
+#destination a{
+	text-decoration: none;
+	color: black;
+	border:5px solid red;
+}
+#destination a:hover{
+	font-weight: bold;
+}
 #HEADER
 {
 	text-align: center;	
-	background-color: #669933;
+	background-color: #996666;
 	padding: 1px;
 	border-radius: 12px 12px 0 0; 
 	padding-top: 20px;
@@ -28,10 +42,10 @@ body
 	
 }	
 
-nav
+#EDITABLENAV
 {
 	text-align: center;	
-	background-color: red;
+	background-color: #996666;
 	padding: 1px;
 	border-radius: 12px 12px 12px 12px; 
 	padding-top: 20px;
@@ -39,34 +53,33 @@ nav
 	
 }
 
-nav ul
+#EDITABLENAV ul
 {
 	padding: 0 10px 0 0;
+	
 }
 
-nav a
+#EDITABLENAV a
 {
 	
 	color: black;
-	background-color: #FAEBD7;
-	padding: 5px;
-	border:1px solid white;
+	background-color: #996666;
+	border: 2px solid black;
 	text-decoration: none;
 }
 a{
 	text-decoration: none;
-	color: black;
 }
-nav ul li
+#EDITABLENAV ul li
 {
 	list-style: none;
 	text-align: center;
 	padding: 1px;
+	
 }
-nav li :hover
+#EDITABLENAV li :hover
 {
 	background-color: white;
-	color: brown;
 }
 
 img
@@ -78,7 +91,7 @@ img
 #PICS
 {
 	
-	BACKGROUND-COLOR: YELLOW;
+	BACKGROUND-COLOR: #996666;
 	text-align: center;	
 	padding: 1px;
 	border-radius: 12px 12px 12px 12px; 
@@ -98,7 +111,7 @@ img
 {
 	clear: both;
 	text-align: center;	
-	BACKGROUND-COLOR: #00FFFF;
+	BACKGROUND-COLOR: #996666 ;
 		text-align: center;	
 	
 	padding: 1px;
@@ -125,20 +138,15 @@ form
 
   #CONTENT{
 	text-align: center;	
-	background-color: pink;
+	background-color: #996666 ;
 	padding: 1px;
 	border-radius: 12px 12px 12px 12px; 
 	padding-top: 20px;
 	margin-top: 20px;
-  }
-#log {
-    margin-bottom: 0;
-	/**margin-left:40px;*/
-  }
-  
+  }  
 
   a {
-    color: #000;
+   	color: black;
     text-decoration: underline;
     cursor: pointer;
   }
@@ -149,6 +157,27 @@ form
     #toolbar [data-wysihtml5-action]:hover {
 	background-color:#FFFFFF;
   }
+ 
+  #toolbar2 [data-wysihtml5-action] {
+	border:2px solid black;
+  }
+    #toolbar2 [data-wysihtml5-action]:hover {
+	background-color:#FFFFFF;
+  }
+
+  #toolbar3 [data-wysihtml5-action] {
+	border:2px solid black;
+  }
+    #toolbar3 [data-wysihtml5-action]:hover {
+	background-color:#FFFFFF;
+  }  
+
+   #toolbar4 [data-wysihtml5-action] {
+	border:2px solid black;
+  }
+    #toolbar4 [data-wysihtml5-action]:hover {
+	background-color:#FFFFFF;
+  }  
 
   #toolbar,
   textarea {
@@ -175,6 +204,83 @@ form
     color: black;
     border: 2px solid black;
   }
+  
+   #toolbar2,
+  #textarea2 {
+    width: 700px;
+    padding: 1px;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+	margin-top: 15px;
+	padding-left: 15px;
+	
+	
+  }
+  
+  #textarea2 {
+    height: 100px;
+    border: 2px solid black;
+    font-family: Verdana;
+    font-size: 11px;
+  }
+  
+  #textarea2:focus {
+    color: black;
+    border: 2px solid black;
+  }
+  
+     #toolbar3,
+  #textarea3 {
+    width: 700px;
+    padding: 1px;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+	margin-top: 15px;
+	padding-left: 15px;
+	
+	
+  }
+  
+  #textarea3 {
+    height: 80px;
+    border: 2px solid black;
+    font-family: Verdana;
+    font-size: 11px;
+  }
+  
+  #textarea3:focus {
+    color: black;
+    border: 2px solid black;
+  }
+  
+  #toolbar4,
+  #textarea4 {
+    width: 700px;
+    padding: 1px;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+	margin-top: 15px;
+	padding-left: 15px;
+  }
+  
+  #textarea4 {
+    height: 40px;
+    border: 2px solid black;
+    font-family: Verdana;
+    font-size: 11px;
+  }
+  
+  #textarea4:focus {
+    color: black;
+    border: 2px solid black;
+  }
+  
   .buttons{
 	margin-left: 10px;
   }
@@ -182,19 +288,8 @@ form
     font-weight: bold;
   }
   
-  [data-wysihtml5-dialog] {
+  a[data-wysihtml5-dialog] {
     padding: 5px;
     border: 1px solid #666;
-  }
-  
-  a[data-wysihtml5-command-value="red"] {
-    color: red;
-  }
-  
-  a[data-wysihtml5-command-value="green"] {
-    color: green;
-  }
-  
-  a[data-wysihtml5-command-value="blue"] {
-    color: blue;
+	color:black;
   }
