@@ -10,26 +10,77 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>CMS TEMPLATE1</title>
 		
-        <link rel="stylesheet" href="styelsheet.css" <!--href="../../stylesheets/stylesheetOne.css"--> />
-
+        <link rel="stylesheet" type="text/css" href="stylesheet.css" id="stylesheet">
+		<!--href="../../stylesheets/stylesheetOne.css"--> 
+		<script type="text/javascript">
+		function changeStyle(style) {
+				if(style == 0){
+					document.getElementById('stylesheet').href = 'stylesheet.css';
+				} else {
+					document.getElementById('stylesheet').href = 'styleasheet2.css';
+				}
+			}
+		</script>
 	</head>
 	<body>
                 
 	  <div id="wrapper">
-	   <div id="edit2" contenteditable="true">
+	  <div id="destination">
+				<a href="#" onclick="changeStyle(0)">STYELSHEET ONE</a> 
+				<a href="#" onclick="changeStyle(1)">STYLESHEET TWO</a>
+			</div>
+	   <div>
 		<header id="HEADER">
 			<% out.print(p.Get("HEADER"));%>
-			
+			<form action="file" method="Post">
+			  <div id="toolbar2" style="display: none;">
+			   <a data-wysihtml5-action="change_view">html view</a> <br> <br>
+				<a data-wysihtml5-command="bold" title="CTRL+B">bold</a> |
+				<a data-wysihtml5-command="italic" title="CTRL+I">italic</a>|
+				<a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1">h1</a> |
+				<a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2">h2</a> 
+			  </div>
+			  <textarea id="textarea2" placeholder="Enter text ..."></textarea>
+			  <br><input type="reset" value="Reset form!">
+			  <input class="buttons" type="submit" value="Submit!">
+			</form>
+			<div id="log2"></div>
+		<script src="simple.js"></script>
+		<script src="wysihtml5-0.4.0pre.js"></script>
 		</header>
 		</div> <!--end of header div-->
 		
                     <nav id="EDITABLENAV">
                         <% out.print(p.Get("EDITABLENAV"));%>
-						
+						<form action="file" method="Post">
+						  <div id="toolbar3" style="display: none;">
+						  <a data-wysihtml5-action="change_view">html view</a> <br> <br>
+							<a data-wysihtml5-command="createLink">insert link</a> 
+							<!-- <a data-wysihtml5-command="undo">undo</a> |
+							<a data-wysihtml5-command="redo">redo</a> -->
+							<!--<a data-wysihtml5-command="insertSpeech">speech</a>-->
+							
+							
+							<div data-wysihtml5-dialog="createLink" style="display: none;">
+							  <label>
+								Link:
+								<input data-wysihtml5-dialog-field="href" value="http://">
+							  </label>
+							  <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a>
+							</div>
+							
+						  </div> <!--end of toolbar div of text Editor-->
+						  <textarea id="textarea3" placeholder="Enter text ..."></textarea>
+						  <br><input class="buttons" type="reset" value="Reset form!">
+						  <input class="buttons" type="submit" value="Submit!">
+						</form><!--End of form -->
+						<div id="log3"></div>
 					</nav>
 
                     <aside id="PICS">
-                        <% out.print(p.Get("PICS"));%>
+                        <% out.print(p.Get("PICS"));%><br> <br>
+						<input type="file" id="uploadfile" name="uploadfile" />
+						<input type="button" value="upload" onclick="upload()" />
 					</aside>
 
 
@@ -45,13 +96,7 @@
 							<a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1">h1</a> |
 							<a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2">h2</a> |
 							<a data-wysihtml5-command="insertUnorderedList">insertUnorderedList</a> |
-							<a data-wysihtml5-command="insertOrderedList">insertOrderedList</a> |
-							<a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="red">red</a> |
-							<a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="green">green</a> |
-							<a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="blue">blue</a> 
-							<!-- <a data-wysihtml5-command="undo">undo</a> |
-							<a data-wysihtml5-command="redo">redo</a> -->
-							<!--<a data-wysihtml5-command="insertSpeech">speech</a>-->
+							<a data-wysihtml5-command="insertOrderedList">insertOrderedList</a>
 							
 							
 							<div data-wysihtml5-dialog="createLink" style="display: none;">
@@ -85,14 +130,51 @@
 						<div id="log"></div>
 							<script src="advanced.js"></script>
 							<script src="wysihtml5-0.4.0pre.js"></script>
-							<script>
+							
+                    </div><!--End of CONTENT div-->
+					<footer id="FOOTER">
+						<% out.print(p.Get("FOOTER"));%>
+							<form action="file" method="Post">
+							  <div id="toolbar4" style="display: none;">
+							  <a data-wysihtml5-action="change_view">html view</a> <br> <br>
+								<a data-wysihtml5-command="bold" title="CTRL+B">bold</a> |
+								<a data-wysihtml5-command="italic" title="CTRL+I">italic</a>
+							  </div>
+							  <textarea id="textarea4" placeholder="Enter text ..."></textarea>
+							  <br><input type="reset" value="Reset form!">
+							  <input class="buttons" type="submit" value="Submit!">
+							</form>
+							<div id="log4"></div>
+					</footer>
+					<script>
 							  var editor = new wysihtml5.Editor("textarea", {
 								toolbar:        "toolbar",
 								stylesheets:    "stylesheet.css",
 								parserRules:    wysihtml5ParserRules
 							  });
 							  
+							  	 var editor2 = new wysihtml5.Editor("textarea2", {
+								toolbar:        "toolbar2",
+								stylesheets:    "stylesheet.css",
+								parserRules:    wysihtml5ParserRules
+							  });
+							  
+							   	 var editor3 = new wysihtml5.Editor("textarea3", {
+								toolbar:        "toolbar3",
+								stylesheets:    "stylesheet.css",
+								parserRules:    wysihtml5ParserRules
+							  });
+							  
+							    var editor4 = new wysihtml5.Editor("textarea4", {
+								toolbar:        "toolbar4",
+								stylesheets:    "stylesheet.css",
+								parserRules:    wysihtml5ParserRules
+							  });
+							  
 							  var log = document.getElementById("log");
+							  var log2 = document.getElementById("log2");
+							  var log3 = document.getElementById("log3");
+							  var log4 = document.getElementById("log4");
 							  
 							  editor
 								.on("load", function() {
@@ -119,11 +201,87 @@
 								.on("redo:composer", function() {
 								  log.innerHTML += "";
 								});
+								
+								editor2
+								.on("load", function() {
+								  log2.innerHTML += "";
+								})
+								.on("focus", function() {
+								  log2.innerHTML += "";
+								})
+								.on("blur", function() {
+								  log2.innerHTML += "";
+								})
+								.on("change", function() {
+								  log2.innerHTML += "";
+								})
+								.on("paste", function() {
+								  log2.innerHTML += "";
+								})
+								.on("newword:composer", function() {
+								  log2.innerHTML += "";
+								})
+								.on("undo:composer", function() {
+								  log2.innerHTML += "";
+								})
+								.on("redo:composer", function() {
+								  log2.innerHTML += "";
+								});
+								
+								editor3
+								.on("load", function() {
+								  log3.innerHTML += "";
+								})
+								.on("focus", function() {
+								  log3.innerHTML += "";
+								})
+								.on("blur", function() {
+								  log3.innerHTML += "";
+								})
+								.on("change", function() {
+								  log3.innerHTML += "";
+								})
+								.on("paste", function() {
+								  log3.innerHTML += "";
+								})
+								.on("newword:composer", function() {
+								  log3.innerHTML += "";
+								})
+								.on("undo:composer", function() {
+								  log3.innerHTML += "";
+								})
+								.on("redo:composer", function() {
+								  log3.innerHTML += "";
+								});
+								
+								editor4
+								.on("load", function() {
+								  log4.innerHTML += "";
+								})
+								.on("focus", function() {
+								  log4.innerHTML += "";
+								})
+								.on("blur", function() {
+								  log4.innerHTML += "";
+								})
+								.on("change", function() {
+								  log4.innerHTML += "";
+								})
+								.on("paste", function() {
+								  log4.innerHTML += "";
+								})
+								.on("newword:composer", function() {
+								  log4.innerHTML += "";
+								})
+								.on("undo:composer", function() {
+								  log4.innerHTML += "";
+								})
+								.on("redo:composer", function() {
+								  log4.innerHTML += "";
+								});
+								
+								var client = new XMLHttpRequest();
 							</script>
-                    </div><!--End of CONTENT div-->
-					<footer id="FOOTER">
-						<% out.print(p.Get("FOOTER"));%>
-					</footer>
 		</div> <!--end of wrapper-->            
 	</body>
 </html>
