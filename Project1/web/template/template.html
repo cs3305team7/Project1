@@ -4,7 +4,7 @@
     
     <% 
         Page p = new Page("","");
-       // out.print(p.createPage());
+        out.print(p.createPage());
     %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -30,35 +30,17 @@
 				<a href="#" onclick="changeStyle(1)">STYLESHEET TWO</a>
 			</div>
 	   <div>
-		<header id="HEADER">
-			<% out.print(p.Get("HEADER"));%>
-			<form action="file" method="Post">
-			  <div id="toolbar2" style="display: none;">
-			   <a data-wysihtml5-action="change_view">html view</a> <br> <br>
-				<a data-wysihtml5-command="bold" title="CTRL+B">bold</a> |
-				<a data-wysihtml5-command="italic" title="CTRL+I">italic</a>|
-				<a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1">h1</a> |
-				<a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2">h2</a> 
-			  </div>
-			  <textarea id="textarea2" placeholder="Enter text ..."></textarea>
-			  <br><input type="reset" value="Reset form!">
-			  <input class="buttons" type="submit" value="Submit!">
-			</form>
-			<div id="log2"></div>
-		<script src="simple.js"></script>
-		<script src="wysihtml5-0.4.0pre.js"></script>
-		</header>
 		</div> <!--end of header div-->
 		
-                    <nav id="EDITABLENAV">
-                        <% out.print(p.Get("EDITABLENAV"));%>
+                    <!-- <nav id="EDITABLENAV">
+                        
 						<form action="file" method="Post">
 						  <div id="toolbar3" style="display: none;">
 						  <a data-wysihtml5-action="change_view">html view</a> <br> <br>
 							<a data-wysihtml5-command="createLink">insert link</a> 
 							<!-- <a data-wysihtml5-command="undo">undo</a> |
 							<a data-wysihtml5-command="redo">redo</a> -->
-							<!--<a data-wysihtml5-command="insertSpeech">speech</a>-->
+							<!--<a data-wysihtml5-command="insertSpeech">speech</a>
 							
 							
 							<div data-wysihtml5-dialog="createLink" style="display: none;">
@@ -69,23 +51,53 @@
 							  <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a>
 							</div>
 							
-						  </div> <!--end of toolbar div of text Editor-->
-						  <textarea id="textarea3" placeholder="Enter text ..."></textarea>
+						  </div> end of toolbar div of text Editor
+						  <textarea id="textarea3" placeholder="Enter text ..."><% out.print(p.Get("EDITABLENAV"));%></textarea>
 						  <br><input class="buttons" type="reset" value="Reset form!">
 						  <input class="buttons" type="submit" value="Submit!">
-						</form><!--End of form -->
+						</form> End of form 
 						<div id="log3"></div>
-					</nav>
-
+					</nav> -->
+					<nav id="EDITABLENAV">
+						<form action="file" method="Post">
+						  <div id="toolbar3" style="display: none;">
+						  <a data-wysihtml5-action="change_view">html view</a> <br> <br>
+							<a data-wysihtml5-command="createLink">insert link</a> 							
+							
+							<div data-wysihtml5-dialog="createLink" style="display: none;">
+							  <label>
+								Link:
+								<input data-wysihtml5-dialog-field="href" value="http://">
+							  </label>
+							  <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a>
+							</div>
+							
+						  </div>
+						  <% out.print(p.Get("EDITABLENAV"));%><br>
+						  ____________________________________________<br>
+						    Name:<input type="text" name="linkName1" placeholder="Enter name" id="form1"><br>
+							Full URL:<input type="text" name="url1" placeholder="Enter full URL"><br>
+							__________________________________________<br>
+							Name:<input type="text" name="linkName2" placeholder="Enter name" id="form2"><br>
+							Full URL:<input type="text" name="url2" placeholder="Enter full URL"><br>
+							__________________________________________<br>
+							Name:<input type="text" name="linkName3" placeholder="Enter name" id="form3"><br>
+							Full URL<input type="text" name="url3" placeholder="Enter full URL"><br>
+							___________________________________________<br>
+						  <br><input class="buttons" type="reset" value="Reset form!">
+						  <input class="buttons" type="submit" value="Submit!">
+						</form>
+						<div id="log3"></div>
+						
+					</nav> 
                     <aside id="PICS">
                         <% out.print(p.Get("PICS"));%><br> <br>
-						<input type="file" id="uploadfile" name="uploadfile" />
-						<input type="button" value="upload" onclick="upload()" />
+						IMAGE UPLOAD INCOMPLETE!
 					</aside>
 
 
                     <div id="CONTENT">
-                        <% out.print(p.Get("CONTENT"));%>
+                        
 						<form action="file" method="Post">
 						  <div id="toolbar" style="display: none;">
 						  <a data-wysihtml5-action="change_view">html view</a> <br> <br>
@@ -123,7 +135,7 @@
 							  <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a>
 							</div>
 						  </div> <!--end of toolbar div of text Editor-->
-						  <textarea id="textarea" placeholder="Enter text ..."></textarea>
+						  <textarea id="textarea" placeholder="Enter text ..."><% out.print(p.Get("CONTENT"));%></textarea>
 						  <br><input class="buttons" type="reset" value="Reset form!">
 						  <input class="buttons" type="submit" value="Submit!">
 						</form><!--End of form -->
@@ -132,29 +144,9 @@
 							<script src="wysihtml5-0.4.0pre.js"></script>
 							
                     </div><!--End of CONTENT div-->
-					<footer id="FOOTER">
-						<% out.print(p.Get("FOOTER"));%>
-							<form action="file" method="Post">
-							  <div id="toolbar4" style="display: none;">
-							  <a data-wysihtml5-action="change_view">html view</a> <br> <br>
-								<a data-wysihtml5-command="bold" title="CTRL+B">bold</a> |
-								<a data-wysihtml5-command="italic" title="CTRL+I">italic</a>
-							  </div>
-							  <textarea id="textarea4" placeholder="Enter text ..."></textarea>
-							  <br><input type="reset" value="Reset form!">
-							  <input class="buttons" type="submit" value="Submit!">
-							</form>
-							<div id="log4"></div>
-					</footer>
 					<script>
 							  var editor = new wysihtml5.Editor("textarea", {
 								toolbar:        "toolbar",
-								stylesheets:    "stylesheet.css",
-								parserRules:    wysihtml5ParserRules
-							  });
-							  
-							  	 var editor2 = new wysihtml5.Editor("textarea2", {
-								toolbar:        "toolbar2",
 								stylesheets:    "stylesheet.css",
 								parserRules:    wysihtml5ParserRules
 							  });
@@ -165,17 +157,10 @@
 								parserRules:    wysihtml5ParserRules
 							  });
 							  
-							    var editor4 = new wysihtml5.Editor("textarea4", {
-								toolbar:        "toolbar4",
-								stylesheets:    "stylesheet.css",
-								parserRules:    wysihtml5ParserRules
-							  });
-							  
-							  var log = document.getElementById("log");
-							  var log2 = document.getElementById("log2");
+							   
+							  var log = document.getElementById("log");							 
 							  var log3 = document.getElementById("log3");
-							  var log4 = document.getElementById("log4");
-							  
+							 						  
 							  editor
 								.on("load", function() {
 								  log.innerHTML += "";
@@ -200,32 +185,6 @@
 								})
 								.on("redo:composer", function() {
 								  log.innerHTML += "";
-								});
-								
-								editor2
-								.on("load", function() {
-								  log2.innerHTML += "";
-								})
-								.on("focus", function() {
-								  log2.innerHTML += "";
-								})
-								.on("blur", function() {
-								  log2.innerHTML += "";
-								})
-								.on("change", function() {
-								  log2.innerHTML += "";
-								})
-								.on("paste", function() {
-								  log2.innerHTML += "";
-								})
-								.on("newword:composer", function() {
-								  log2.innerHTML += "";
-								})
-								.on("undo:composer", function() {
-								  log2.innerHTML += "";
-								})
-								.on("redo:composer", function() {
-								  log2.innerHTML += "";
 								});
 								
 								editor3
@@ -254,33 +213,7 @@
 								  log3.innerHTML += "";
 								});
 								
-								editor4
-								.on("load", function() {
-								  log4.innerHTML += "";
-								})
-								.on("focus", function() {
-								  log4.innerHTML += "";
-								})
-								.on("blur", function() {
-								  log4.innerHTML += "";
-								})
-								.on("change", function() {
-								  log4.innerHTML += "";
-								})
-								.on("paste", function() {
-								  log4.innerHTML += "";
-								})
-								.on("newword:composer", function() {
-								  log4.innerHTML += "";
-								})
-								.on("undo:composer", function() {
-								  log4.innerHTML += "";
-								})
-								.on("redo:composer", function() {
-								  log4.innerHTML += "";
-								});
 								
-								var client = new XMLHttpRequest();
 							</script>
 		</div> <!--end of wrapper-->            
 	</body>
