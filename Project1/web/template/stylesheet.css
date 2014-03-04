@@ -1,0 +1,295 @@
+body
+{
+	background-color:#FF9999;
+	font-family: Verdana;
+    font-size: 11px;
+	color: white;
+	/**margin-left:auto;
+	margin-right:auto;*/
+	width:70%;
+}
+#wrapper
+{
+	margin-left: auto;
+	margin-right: auto;
+	width: 760px;
+	background-color: #D8D8D8;
+	border-radius: 12px; 
+	padding: 12px;
+}
+#destination{
+	padding-bottom: 15px;
+	text-align: center;
+	color: black;
+	
+}
+#destination a{
+	text-decoration: none;
+	color: black;
+	border:5px solid red;
+}
+#destination a:hover{
+	font-weight: bold;
+}
+#HEADER
+{
+	text-align: center;	
+	background-color: #996666;
+	padding: 1px;
+	border-radius: 12px 12px 0 0; 
+	padding-top: 20px;
+	margin-bottom: 20px;
+	
+}	
+
+#EDITABLENAV
+{
+	text-align: center;	
+	background-color: #996666;
+	padding: 1px;
+	border-radius: 12px 12px 12px 12px; 
+	padding-top: 20px;
+	margin-top:10px;
+	
+}
+
+#EDITABLENAV ul
+{
+	padding: 0 10px 0 0;
+	
+}
+
+#EDITABLENAV a
+{
+	
+	color: black;
+	background-color: #996666;
+	border: 2px solid black;
+	text-decoration: none;
+}
+a{
+	text-decoration: none;
+}
+#EDITABLENAV ul li
+{
+	list-style: none;
+	text-align: center;
+	padding: 1px;
+	
+}
+#EDITABLENAV li :hover
+{
+	background-color: white;
+}
+
+img
+{
+	width: 100%;
+    height: auto;
+}
+
+#PICS
+{
+	
+	BACKGROUND-COLOR: #996666;
+	text-align: center;	
+	padding: 1px;
+	border-radius: 12px 12px 12px 12px; 
+	padding-top: 20px;
+	margin-top: 20px;
+}
+
+/**#CONTENT
+{
+	MARGIN-LEFT:AUTO;
+	MARGIN-RIGHT:AUTO;
+	
+	BACKGROUND-COLOR:GREEN;
+}*/
+
+#FOOTER
+{
+	clear: both;
+	text-align: center;	
+	BACKGROUND-COLOR: #996666 ;
+		text-align: center;	
+	
+	padding: 1px;
+	border-radius: 0 0 12px 12px; 
+	padding-top: 20px;
+	margin-top: 20px;
+}
+/**  TABLE design ContactUs 
+form
+{
+    color:#000000;
+    font:14px Georgia, serif;
+    padding:0px;
+	border-collapse:collapse;
+	width: 70%;
+	
+}**/
+ 
+
+
+
+
+/** end of TABLE design ContactUs **/
+
+  #CONTENT{
+	text-align: center;	
+	background-color: #996666 ;
+	padding: 1px;
+	border-radius: 12px 12px 12px 12px; 
+	padding-top: 20px;
+	margin-top: 20px;
+  }  
+
+  a {
+   	color: black;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  #toolbar [data-wysihtml5-action] {
+	border:2px solid black;
+  }
+    #toolbar [data-wysihtml5-action]:hover {
+	background-color:#FFFFFF;
+  }
+ 
+  #toolbar2 [data-wysihtml5-action] {
+	border:2px solid black;
+  }
+    #toolbar2 [data-wysihtml5-action]:hover {
+	background-color:#FFFFFF;
+  }
+
+  #toolbar3 [data-wysihtml5-action] {
+	border:2px solid black;
+  }
+    #toolbar3 [data-wysihtml5-action]:hover {
+	background-color:#FFFFFF;
+  }  
+
+   #toolbar4 [data-wysihtml5-action] {
+	border:2px solid black;
+  }
+    #toolbar4 [data-wysihtml5-action]:hover {
+	background-color:#FFFFFF;
+  }  
+
+  #toolbar,
+  textarea {
+    width: 700px;
+    padding: 1px;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+	margin-top: 15px;
+	padding-left: 15px;
+	
+	
+  }
+  
+  textarea {
+    height: 280px;
+    border: 2px solid black;
+    font-family: Verdana;
+    font-size: 11px;
+  }
+  
+  textarea:focus {
+    color: black;
+    border: 2px solid black;
+  }
+  
+   #toolbar2,
+  #textarea2 {
+    width: 700px;
+    padding: 1px;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+	margin-top: 15px;
+	padding-left: 15px;
+	
+	
+  }
+  
+  #textarea2 {
+    height: 100px;
+    border: 2px solid black;
+    font-family: Verdana;
+    font-size: 11px;
+  }
+  
+  #textarea2:focus {
+    color: black;
+    border: 2px solid black;
+  }
+  
+     #toolbar3,
+  #textarea3 {
+    width: 700px;
+    padding: 1px;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+	margin-top: 15px;
+	padding-left: 15px;
+	
+	
+  }
+  
+  #textarea3 {
+    height: 80px;
+    border: 2px solid black;
+    font-family: Verdana;
+    font-size: 11px;
+  }
+  
+  #textarea3:focus {
+    color: black;
+    border: 2px solid black;
+  }
+  
+  #toolbar4,
+  #textarea4 {
+    width: 700px;
+    padding: 1px;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+	margin-top: 15px;
+	padding-left: 15px;
+  }
+  
+  #textarea4 {
+    height: 40px;
+    border: 2px solid black;
+    font-family: Verdana;
+    font-size: 11px;
+  }
+  
+  #textarea4:focus {
+    color: black;
+    border: 2px solid black;
+  }
+  
+  .buttons{
+	margin-left: 10px;
+  }
+  .wysihtml5-command-active {
+    font-weight: bold;
+  }
+  
+  a[data-wysihtml5-dialog] {
+    padding: 5px;
+    border: 1px solid #666;
+	color:black;
+  }
