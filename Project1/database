@@ -1,0 +1,168 @@
+DROP TABLE IF EXISTS id_center;
+CREATE TABLE id_center
+(
+	name VARCHAR(255) NOT NULL,
+	g_ID INT AUTO_INCREMENT,
+	guest INT(1) NOT NULL,
+	administrator INT(1) NOT NULL,
+	website_admin INT(1) NOT NULL,
+	PRIMARY KEY(g_ID)
+);
+
+DROP TABLE IF EXISTS charity_sites;
+CREATE TABLE charity_sites
+(
+	url VARCHAR(100) NOT NULL,
+	w_ID INT AUTO_INCREMENT
+);
+
+DROP TABLE IF EXISTS administrators;
+CREATE TABLE administrators
+(
+	name VARCHAR(40) NOT NULL,
+	password VARCHAR(32) NOT NULL,
+	email VARCHAR(255) NOT NULL,
+	g_ID INT(255),
+	PRIMARY KEY(g_ID)
+);
+
+DROP TABLE IF EXISTS website;
+CREATE TABLE website
+(
+	w_ID INT(255) NOT NULL,
+	g_ID INT(255) NOT NULL,
+	t_ID INT(255) NOT NULL,
+	c_ID INT(255) NOT NULL,
+	PRIMARY KEY(w_ID)
+);
+DROP TABLE IF EXISTS templates;
+CREATE TABLE templates
+(
+	t_ID INT AUTO_INCREMENT,
+	location VARCHAR(255) NOT NULL,
+	PRIMARY KEY(t_ID)
+);
+
+DROP TABLE IF EXISTS webpages;
+CREATE TABLE webpages
+(
+	w_ID INT(255) NOT NULL,
+	p_ID INT AUTO_INCREMENT,
+	header TEXT,
+	footer TEXT,
+	cur_timestamp TIMESTAMP(8),
+	PRIMARY KEY(p_ID)
+);
+
+
+
+DROP TABLE IF EXISTS regular_content;
+CREATE TABLE regular_content
+(
+	w_ID INT(255) NOT NULL,
+	textual_content TEXT,
+	p_ID INT(255)
+);
+
+DROP TABLE IF EXISTS lost_and_found;
+CREATE TABLE lost_and_found
+(
+	g_ID INT(255),
+	p_ID INT(255),
+	post_ID INT(255),
+	cur_timestamp TIMESTAMP(8),
+	description TEXT,
+	PRIMARY KEY( post_ID )
+);
+
+DROP TABLE IF EXISTS website_admin;
+CREATE TABLE website_admin
+(
+	g_ID INT(255) NOT NULL,
+	w_ID INT(255)NOT NULL,
+	name VARCHAR(255) NOT NULL,
+	password VARCHAR(255) NOT NULL,
+	email VARCHAR(255) NOT NULL,
+	PRIMARY KEY(g_ID)
+);
+
+DROP TABLE IF EXISTS bank_details;
+CREATE TABLE bank_details
+(
+	account_name VARCHAR(255),
+	sort_code VARCHAR(30),
+	account_num VARCHAR(30),
+	PRIMARY KEY( account_num)
+);
+
+DROP TABLE IF EXISTS donations;
+CREATE TABLE donations
+(
+	d_ID INT AUTO_INCREMENT,
+	name VARCHAR(30),
+	address VARCHAR(50),
+	section_ID INT(255) NOT NULL,
+	anonymous INT(1) NOT NULL,
+	d_comment VARCHAR(255),
+	amount FLOAT,
+	total_donations FLOAT,
+	PRIMARY KEY( d_ID)
+);
+
+DROP TABLE IF EXISTS charity_sections;
+CREATE TABLE charity_sections
+(
+	section_ID INT AUTO_INCREMENT,
+	name VARCHAR(30),
+	description TEXT,
+	PRIMARY KEY( section_ID)
+);
+
+DROP TABLE IF EXISTS images;
+CREATE TABLE images
+(
+	post_ID INT(255) NOT NULL,
+	location VARCHAR(255) NOT NULL,
+	w_ID INT (255) NOT NULL,
+	PRIMARY KEY(location)
+);
+
+DROP TABLE IF EXISTS posts;
+CREATE TABLE posts
+(
+	g_ID INT(255) NOT NULL,
+	post_ID INT AUTO_INCREMENT,
+	title VARCHAR(255) NOT NULL,
+	content TEXT NOT NULL,
+	cur_timestamp TIMESTAMP(8),
+	PRIMARY KEY(post_ID)
+);
+
+DROP TABLE IF EXISTS registered_users;
+CREATE TABLE registered_users
+(
+	g_ID INT(255) NOT NULL,
+	name VARCHAR(30) NOT NULL,
+	email VARCHAR(30) NOT NULL,
+	password VARCHAR(255) NOT NULL,
+	w_ID INT(255) NOT NULL,
+	animals_adopted VARCHAR(255),
+	PRIMARY KEY(g_ID)
+);
+
+DROP TABLE IF EXISTS animals_for_adoption;
+CREATE TABLE animals_for_adoption
+(
+	w_ID INT(255) NOT NULL,
+	post_ID INT(255) NOT NULL,
+	cur_timestamp TIMESTAMP(8),
+	PRIMARY KEY(post_ID)
+);
+
+DROP TABLE IF EXISTS css_templates;
+CREATE TABLE css_templates
+(
+	c_ID INT AUTO_INCREMENT,
+	location VARCHAR(255),
+	PRIMARY KEY(c_ID)
+);
