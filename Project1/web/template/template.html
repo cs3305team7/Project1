@@ -20,6 +20,55 @@
 					document.getElementById('stylesheet').href = 'styleasheet2.css';
 				}
 			}
+			
+		
+<!-- 
+//Browser Support Code
+ $(document).ready(function() {
+                $("#navForm").gs_ajax_form({
+                    trigger_el: '#btnTrigger',
+                    target_url: 'http://host/submit.php',
+                    additional_data: {another_key: 'another_value'},
+                    before_request_condition: function() {
+                        console.log('inside before_request_condition');
+                        return true;
+                    },
+                    before_request: function() {
+                        console.log('inside before_request');
+                    },
+                    after_request_success: function() {
+                        console.log('inside after_request_success');
+                    },
+                    after_request_error: function() {
+                        console.log('inside after_request_error');
+                    }
+                });
+            });
+//-->
+
+$("#ajaxform").submit(function(e)
+{
+    var postData = $(this).serializeArray();
+    var formURL = $(this).attr("action");
+    $.ajax(
+    {
+        url : formURL,
+        type: "POST",
+        data : postData,
+        success:function(data, textStatus, jqXHR) 
+        {
+            //data: return data from server
+        },
+        error: function(jqXHR, textStatus, errorThrown) 
+        {
+            //if fails      
+        }
+    });
+    e.preventDefault(); //STOP default action
+    e.unbind(); //unbind. to stop multiple form submit.
+});
+ 
+$("#ajaxform").submit(); //Submit  the FORM
 		</script>
 	</head>
 	<body>
@@ -30,36 +79,9 @@
 				<a href="#" onclick="changeStyle(1)">STYLESHEET TWO</a>
 			</div>
 	   <div>
-		</div> <!--end of header div-->
-		
-                    <!-- <nav id="EDITABLENAV">
-                        
-						<form action="file" method="Post">
-						  <div id="toolbar3" style="display: none;">
-						  <a data-wysihtml5-action="change_view">html view</a> <br> <br>
-							<a data-wysihtml5-command="createLink">insert link</a> 
-							<!-- <a data-wysihtml5-command="undo">undo</a> |
-							<a data-wysihtml5-command="redo">redo</a> -->
-							<!--<a data-wysihtml5-command="insertSpeech">speech</a>
-							
-							
-							<div data-wysihtml5-dialog="createLink" style="display: none;">
-							  <label>
-								Link:
-								<input data-wysihtml5-dialog-field="href" value="http://">
-							  </label>
-							  <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a>
-							</div>
-							
-						  </div> end of toolbar div of text Editor
-						  <textarea id="textarea3" placeholder="Enter text ..."><% out.print(p.Get("EDITABLENAV"));%></textarea>
-						  <br><input class="buttons" type="reset" value="Reset form!">
-						  <input class="buttons" type="submit" value="Submit!">
-						</form> End of form 
-						<div id="log3"></div>
-					</nav> -->
-					<nav id="EDITABLENAV">
-						<form action="file" method="Post">
+		</div> 
+		<nav id="EDITABLENAV">
+						<form  id="navForm">
 						  <div id="toolbar3" style="display: none;">
 						  <a data-wysihtml5-action="change_view">html view</a> <br> <br>
 							<a data-wysihtml5-command="createLink">insert link</a> 							
@@ -74,18 +96,33 @@
 							
 						  </div>
 						  <% out.print(p.Get("EDITABLENAV"));%><br>
-						  ____________________________________________<br>
+						 <br>
+						  <table>
+						    <tr>
+							<td>
 						    Name:<input type="text" name="linkName1" placeholder="Enter name" id="form1"><br>
+							</td>
+							<td>
 							Full URL:<input type="text" name="url1" placeholder="Enter full URL"><br>
-							__________________________________________<br>
+							</td>
+							</tr>
+							<tr>
+							<td>
+							<br>
 							Name:<input type="text" name="linkName2" placeholder="Enter name" id="form2"><br>
+							</td>
+							<td>
 							Full URL:<input type="text" name="url2" placeholder="Enter full URL"><br>
-							__________________________________________<br>
-							Name:<input type="text" name="linkName3" placeholder="Enter name" id="form3"><br>
-							Full URL<input type="text" name="url3" placeholder="Enter full URL"><br>
-							___________________________________________<br>
-						  <br><input class="buttons" type="reset" value="Reset form!">
-						  <input class="buttons" type="submit" value="Submit!">
+							</td>
+							</tr>
+							<tr>
+							<td><br>
+							Name:<input type="text" name="linkName3" placeholder="Enter name" id="form3"><br></td>
+							<td>Full URL<input type="text" name="url3" placeholder="Enter full URL"><br></td>
+							</tr>
+						  <tr><td><input class="buttons" type="reset" value="Reset form!"></td>
+						  <td><input class="buttons" type="submit" value="Submit!"></td></tr>
+						 </table>
 						</form>
 						<div id="log3"></div>
 						
@@ -98,7 +135,7 @@
 
                     <div id="CONTENT">
                         
-						<form action="file" method="Post">
+						<form name="ajaxform" id="ajaxform" action="ajax-form-submit.php" method="POST">
 						  <div id="toolbar" style="display: none;">
 						  <a data-wysihtml5-action="change_view">html view</a> <br> <br>
 							<a data-wysihtml5-command="bold" title="CTRL+B">bold</a> |
