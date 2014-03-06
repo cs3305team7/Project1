@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  *
@@ -20,16 +21,16 @@ import java.util.HashMap;
 public class PageBuilder {
     protected ArrayList<String> content;
     private final String CONTENTQUERY,HEADERQUERY,FOOTERQUERY;
-    private final String PAGE_TEMP_LOC;
+    private final String PAGE_TEMP;
     private HashMap<String,String> ContentMap;
 
-    public PageBuilder(String pageTemplateLocation){
+    public PageBuilder(String pageTemplate){
         content=new ArrayList<>();
         CONTENTQUERY="";//sql query using website and page to get footer
         HEADERQUERY="";//sql query using website and page to get header
         FOOTERQUERY="";
         setUpContentList();
-        PAGE_TEMP_LOC=pageTemplateLocation;
+        PAGE_TEMP=pageTemplate;
         ContentMap=new HashMap<String,String>();
     }
 
@@ -42,7 +43,7 @@ public class PageBuilder {
         ContentMap.put("HEADER", getHeader());
         //add code to put each section id + it's content
         //into the map
-        
+        List<String> sections = getSections();
         //get editable sectiosn strings from page class/from template
         ContentMap.put("FOOTER",getFooter());
         return null;
@@ -92,5 +93,10 @@ public class PageBuilder {
     private void getTemplateContent(){
         Path path = FileSystems.getDefault().getPath("logs", "access.log");
         //Files.readAllLines(path,//NEED TO ADD A CHARSET OBJECT);
+    }
+
+    private List<String> getSections(String Template) {
+        throw new UnsupportedOperationException("Not supported yet.");
+        //To change body of generated methods, choose Tools | Templates.
     }
 }

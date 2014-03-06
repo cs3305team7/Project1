@@ -19,6 +19,7 @@ import java.io.PrintWriter;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.DocumentType;
+import org.w3c.dom.Element;
 import org.w3c.dom.Entity;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
@@ -31,18 +32,18 @@ public class DOMParser {
 
     static final String outputEncoding = "UTF-8";
     private final String FILE_NAME;
-    private Document doc;
+    protected Document doc;
     private void usage() {
         // ...
     }
 
-    public DOMParser(String[] args)throws Exception{
-        FILE_NAME="";
+    public DOMParser(String File_name)throws Exception{
+        FILE_NAME=File_name;
         boolean dtdValidate = false;
         boolean xsdValidate = false;
         String schemaSource = null;
 
-        for (int i = 0; i < args.length; i++) {
+       /* for (int i = 0; i < args.length; i++) {
             if (args[i].equals("-dtd"))  { 
                 dtdValidate = true;
             } 
@@ -66,7 +67,7 @@ public class DOMParser {
 
         if (FILE_NAME == null) {
             usage();
-        }
+        }*/
 
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 
@@ -82,10 +83,6 @@ public class DOMParser {
         
     }
     
-    public NodeList getErrorTags(){
-        return doc.getElementsByTagName("Error");
-        //return ;
-    }
     
     private static class MyErrorHandler implements ErrorHandler { 
             private PrintWriter out;

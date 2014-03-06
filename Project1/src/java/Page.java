@@ -20,6 +20,11 @@ public class Page {
     private String pageContent;
     private HashMap<String,String> ContentMap;
     private String styleTemplate;
+    
+   
+    public static enum Template{
+        TEMPLATE1,TEMPLATE2,TEMPLATE3
+    }
     public Page(String website, String page){
         this.website=website;
         this.page=page;
@@ -40,32 +45,23 @@ public class Page {
     }
     //////TODO
     /*
-    *  method to return the page html template as a string
+    *  method to return the page html template enum identifier
     *
     */
-    private String getTemplate(){
-        String templateURI=getTemplateLocation();
+    private Template getTemplate(){
+        //add qeury to retrieve actual template for site
+        Template t = getTemplate(/* query string value here*/);
         //find the page in the file system
-        return "";
+        return t;
+    }
+    
+    private Template getTemplate(String template){
+        
+        switch(template){
+            case "t1":
+                    return Template.TEMPLATE1;
+            default: return null;
+        }
     }
 
-    //////TODO
-    /*
-    *query the database for the location uri of this pages template
-    * 
-    */
-    private String getTemplateLocation(){
-        DBManager db=new DBManager();
-        ResultSet rs=null;
-        try{
-           rs= db.query("");
-        }catch(Exception e){
-            e.printStackTrace();
-            //error message page content not found
-        }
-        if(rs!=null){
-            //process resultset
-        }
-           return "";
-    }
 }

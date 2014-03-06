@@ -16,16 +16,16 @@ import org.w3c.dom.NodeList;
  *
  * @author Thomas
  */
-public class ErrorRetriever {
+public class ErrorRetriever extends DOMParser{
     private DOMParser DOM;
-    public enum Error{
+    public static enum Error{
         TEST
     }
     
     
-    public ErrorRetriever(){
-       
-        DOM=new DOMParser();
+    public ErrorRetriever(String Filename) throws Exception{
+       super(Filename);
+        
     }
     public String getErrString(Error err){
         String errRequired;
@@ -51,5 +51,45 @@ public class ErrorRetriever {
         return null;
     }
     
+    public NodeList getErrorTags(){
+        NodeList p = doc.getElementsByTagName("error");
+        
+        for(int i=0;i<p.getLength();i++){
+          NodeList p2 =  p.item(i).getChildNodes();
+            for(int j=0;j<p2.getLength();j++){
+                    if(p2.item(j).getNodeName().equals("name")){
+                        
+                    }
+            }
+        }
+        return doc.getElementsByTagName("error");
+        //return ;
+    }
+    
+    public String getError(String ErrorName){
+        NodeList p = doc.getElementsByTagName("error");
+        boolean doneLoop1=false;
+        NodeList p2=null;
+        String retval=null;
+        for(int i=0;i<p.getLength() && !doneLoop1;i++){
+          p2 =  p.item(i).getChildNodes();
+            for(int j=0;j<p2.getLength();j++){
+                    if(p2.item(j).getNodeName().equals("name")){
+                        if(p2.item(j).getNodeValue().equals(ErrorName)){
+                            doneLoop1=true;
+                        }
+                    }
+            }
+        }
+        if(p2!=null){
+            for(int i=0;i<p2.getLength();i++){
+                if(p2.item(i).getNodeName().equals("value")){
+                    retval= p2.item(i).getNodeValue();
+                    break;
+                }
+            }
+        }
+        return retval;
+    }
     
 }
