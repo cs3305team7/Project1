@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -26,10 +27,10 @@ public class PageBuilder {
 
     public PageBuilder(Page.Template pageTemplate){
         content=new ArrayList<>();
-        CONTENTQUERY="";//sql query using website and page to get footer
+        CONTENTQUERY="select content from content where website =%1$ and "
+                + "sectionID=%2$";//sql query using website and page to get footer
         HEADERQUERY="";//sql query using website and page to get header
         FOOTERQUERY="";
-        setUpContentList();
         PAGE_TEMP=pageTemplate;
         ContentMap=new HashMap<String,String>();
     }
@@ -44,20 +45,23 @@ public class PageBuilder {
         //add code to put each section id + it's content
         //into the map
         List<String> sections = getSections(PAGE_TEMP);
+        for (String sect : sections) {
+            ContentMap.put(sect,getContent(sect));
+        }
         //get editable sectiosn strings from page class/from template
         ContentMap.put("FOOTER",getFooter());
         return null;
     }
     /*
-    *finds content strings for this page and inserts them
-    *in order into the content ArrayList
+    *
     *@author Thomas Carr
     */
-    private void setUpContentList(){
+    private String getContent(String contentID){
         DBManager db=new DBManager();
         ResultSet rs=null;
+        String query=String.format(CONTENTQUERY, "websitename",contentID);
         try{
-           rs= db.query(CONTENTQUERY);
+           rs= db.query(query);
         }catch(Exception e){
             e.printStackTrace();
             //error message page content not found
@@ -65,6 +69,7 @@ public class PageBuilder {
         if(rs!=null){
             //process result adding content to content arraylist
         }
+        return "";
     }
     
     private String getHeader(){
@@ -90,13 +95,9 @@ public class PageBuilder {
         }
         return null;
     }
-    private void getTemplateContent(){
-        Path path = FileSystems.getDefault().getPath("logs", "access.log");
-        //Files.readAllLines(path,//NEED TO ADD A CHARSET OBJECT);
-    }
+   
 
-    private List<String> getSections(Page.Template Template) {
-        throw new UnsupportedOperationException("Not supported yet.");
-        //To change body of generated methods, choose Tools | Templates.
+    private List<String> getSections(Page.Template template) {
+        return Page.Template.getTemplateHeaders(template);
     }
 }

@@ -18,13 +18,14 @@ import org.w3c.dom.NodeList;
  */
 public class ErrorRetriever extends DOMParser{
     private DOMParser DOM;
+    public final static String ERRORS_FILE="";
     public static enum Error{
         TEST
     }
     
     
-    public ErrorRetriever(String Filename) throws Exception{
-       super(Filename);
+    public ErrorRetriever() throws Exception{
+       super(ERRORS_FILE);
         
     }
     public String getErrString(Error err){
@@ -35,7 +36,7 @@ public class ErrorRetriever extends DOMParser{
                 break;
             default:errRequired=""; break;
         }
-         NodeList nodes= DOM.getErrorTags();
+         NodeList nodes= getErrorTags();
          Element e;
          for(int i=0;i<nodes.getLength();i++){
              e=(Element)nodes.item(i);

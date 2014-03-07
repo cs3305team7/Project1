@@ -14,6 +14,7 @@ CREATE TABLE charity_sites
 (
 	url VARCHAR(100) NOT NULL,
 	w_ID INT AUTO_INCREMENT
+	PRIMARY KEY(g_ID)
 );
 
 DROP TABLE IF EXISTS administrators;

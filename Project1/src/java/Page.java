@@ -23,18 +23,25 @@ public class Page {
     
    
     public static enum Template{
-        TEMPLATE1,TEMPLATE2,TEMPLATE3;
+        TEMPLATE1,TEMPLATE2;
         
         public static ArrayList<String> getTemplateHeaders(Template t){
             ArrayList<String> retList = new ArrayList<>();
             switch(t){
                 case TEMPLATE1:
-                    retList.add("");
+                    retList.add("EDITABLENAV");
+                    retList.add("PICS");
+                    retList.add("CONTENT");
                     break;
+                case TEMPLATE2:
+                    retList.add("EDITABLENAV");
+                    retList.add("PICS");
+                    retList.add("CONTENT");
+                    retList.add("CONTENT2");
                 default:
                     break;
             }
-            return new ArrayList<>();
+            return retList;
         }
     }
     public Page(String website, String page){
