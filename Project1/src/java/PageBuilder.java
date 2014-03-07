@@ -21,10 +21,10 @@ import java.util.List;
 public class PageBuilder {
     protected ArrayList<String> content;
     private final String CONTENTQUERY,HEADERQUERY,FOOTERQUERY;
-    private final String PAGE_TEMP;
+    private final Page.Template PAGE_TEMP;
     private HashMap<String,String> ContentMap;
 
-    public PageBuilder(String pageTemplate){
+    public PageBuilder(Page.Template pageTemplate){
         content=new ArrayList<>();
         CONTENTQUERY="";//sql query using website and page to get footer
         HEADERQUERY="";//sql query using website and page to get header
@@ -43,7 +43,7 @@ public class PageBuilder {
         ContentMap.put("HEADER", getHeader());
         //add code to put each section id + it's content
         //into the map
-        List<String> sections = getSections();
+        List<String> sections = getSections(PAGE_TEMP);
         //get editable sectiosn strings from page class/from template
         ContentMap.put("FOOTER",getFooter());
         return null;
@@ -95,7 +95,7 @@ public class PageBuilder {
         //Files.readAllLines(path,//NEED TO ADD A CHARSET OBJECT);
     }
 
-    private List<String> getSections(String Template) {
+    private List<String> getSections(Page.Template Template) {
         throw new UnsupportedOperationException("Not supported yet.");
         //To change body of generated methods, choose Tools | Templates.
     }
