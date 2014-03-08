@@ -63,16 +63,29 @@ public class PageBuilder {
         DBManager db=new DBManager();
         ResultSet rs=null;
         String query=String.format(CONTENTQUERY, "websitename",contentID);
+         Reader reader;
+        String Content="";
+        char character[]=new char[20000];
+        int numchars;
         try{
-           rs= db.query(query);
-        }catch(Exception e){
-            e.printStackTrace();
-            //error message page content not found
+            rs=db.query(query);
+            if(rs!=null){
+               while(rs.next()){
+                   reader= rs.getCharacterStream("header");
+                   do{
+                   numchars=reader.read(character, 0, 20000);
+                       if(character.length>0){
+                           Content+= new String(character);
+                           character=new char[20000];
+                       }
+                   }while(numchars!=-1);
+                }
+            }
         }
-        if(rs!=null){
-            //process result adding content to content arraylist
+        catch(SQLException | IOException e){
+            //set Content = to error message
         }
-        return "";
+        return Content;
     }
     
     private String getHeader(){
