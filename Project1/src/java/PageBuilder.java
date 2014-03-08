@@ -6,11 +6,14 @@
 
 
 
+import java.io.IOException;
+import java.io.Reader;
 import java.nio.file.FileSystems;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -50,7 +53,7 @@ public class PageBuilder {
         }
         //get editable sectiosn strings from page class/from template
         ContentMap.put("FOOTER",getFooter());
-        return null;
+        return ContentMap;
     }
     /*
     *
@@ -75,25 +78,57 @@ public class PageBuilder {
     private String getHeader(){
         DBManager db=new DBManager();
         ResultSet rs=null;
+        Reader reader;
+        String Header="";
+        char character[]=new char[20000];
+        int numchars;
         try{
             rs=db.query(HEADERQUERY);
+            if(rs!=null){
+               while(rs.next()){
+                   reader= rs.getCharacterStream("header");
+                   do{
+                   numchars=reader.read(character, 0, 20000);
+                       if(character.length>0){
+                           Header+= new String(character);
+                           character=new char[20000];
+                       }
+                   }while(numchars!=-1);
+                }
+            }
         }
-        catch(Exception e){
-            e.printStackTrace();
+        catch(SQLException | IOException e){
+            //set Header = to error message
         }
-        return null;
+        return Header;
     }
     
     private String getFooter(){
         DBManager db=new DBManager();
         ResultSet rs=null;
+        Reader reader;
+        String Footer="";
+        char character[]=new char[20000];
+        int numchars;
         try{
             rs=db.query(FOOTERQUERY);
+            if(rs!=null){
+               while(rs.next()){
+                   reader= rs.getCharacterStream("footer");
+                   do{
+                   numchars=reader.read(character, 0, 20000);
+                       if(character.length>0){
+                           Footer+= new String(character);
+                           character=new char[20000];
+                       }
+                   }while(numchars!=-1);
+                }
+            }
         }
-        catch(Exception e){
-            e.printStackTrace();
+        catch(SQLException | IOException e){
+            //set Footer = to error message
         }
-        return null;
+        return Footer;
     }
    
 
