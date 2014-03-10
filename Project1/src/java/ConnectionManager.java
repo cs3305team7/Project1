@@ -13,9 +13,9 @@ import java.sql.SQLException;
  */
 public class ConnectionManager {
     private static ConnectionManager instance = null; 
-    private final String Username = "as11";
-    private final String Password = "toozoghu";
-    private final String connection_string = "cs1.ucc.ie/2015_as11"; //cms_system is the database name AND mysql changed to derby
+    private final String Username = "sor4";
+    private final String Password = "iikiighu";
+    private final String connection_string = "cs1.ucc.ie/2015_sor4"; //cms_system is the database name AND mysql changed to derby
     
     private Connection con = null;
     
