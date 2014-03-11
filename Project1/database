@@ -51,7 +51,7 @@ CREATE TABLE webpages
 	p_ID INT AUTO_INCREMENT,
 	header TEXT,
 	footer TEXT,
-	cur_timestamp TIMESTAMP(8),
+	cur_timestamp TIMESTAMP,
 	PRIMARY KEY(p_ID)
 );
 
@@ -62,7 +62,8 @@ CREATE TABLE regular_content
 (
 	w_ID INT(255) NOT NULL,
 	textual_content TEXT,
-	p_ID INT(255)
+	p_ID INT(255),
+	PRIMARY KEY (p_ID)
 );
 
 DROP TABLE IF EXISTS lost_and_found;
@@ -71,7 +72,7 @@ CREATE TABLE lost_and_found
 	g_ID INT(255),
 	p_ID INT(255),
 	post_ID INT(255),
-	cur_timestamp TIMESTAMP(8),
+	cur_timestamp TIMESTAMP,
 	description TEXT,
 	PRIMARY KEY( post_ID )
 );
@@ -135,7 +136,7 @@ CREATE TABLE posts
 	post_ID INT AUTO_INCREMENT,
 	title VARCHAR(255) NOT NULL,
 	content TEXT NOT NULL,
-	cur_timestamp TIMESTAMP(8),
+	cur_timestamp TIMESTAMP,
 	PRIMARY KEY(post_ID)
 );
 
@@ -156,7 +157,7 @@ CREATE TABLE animals_for_adoption
 (
 	w_ID INT(255) NOT NULL,
 	post_ID INT(255) NOT NULL,
-	cur_timestamp TIMESTAMP(8),
+	cur_timestamp TIMESTAMP,
 	PRIMARY KEY(post_ID)
 );
 
