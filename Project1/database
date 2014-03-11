@@ -74,6 +74,7 @@ CREATE TABLE lost_and_found
 	post_ID INT(255),
 	cur_timestamp TIMESTAMP,
 	description TEXT,
+	lost INT(1),
 	PRIMARY KEY( post_ID )
 );
 
