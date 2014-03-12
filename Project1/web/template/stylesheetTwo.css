@@ -27,6 +27,19 @@ header  {
     background-color: #C0C0C0;
     text-align: left;
 }
+#MAIN   {
+    float: left;
+    width: 100%;
+}
+#CONTENT  {
+    clear: left;
+    float: left;
+    width: 100%;
+}
+#CONTENT2  {
+    float: right;
+    width: 100%;
+}
 aside  {
     background: #ff0000;
     float: right;
@@ -69,6 +82,10 @@ footer {
     }
     #CONTENT    {
         clear: none;
+        width: 30%;
+    }
+    #CONTENT2   {
+        width: 70%;
     }
     aside   {
         width: 30%;
