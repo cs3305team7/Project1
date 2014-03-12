@@ -6,6 +6,7 @@ CREATE TABLE id_center
 	guest INT(1) NOT NULL,
 	administrator INT(1) NOT NULL,
 	website_admin INT(1) NOT NULL,
+	registered_user INT(1) NOT NULL,
 	PRIMARY KEY(g_ID)
 );
 
