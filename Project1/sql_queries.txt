@@ -1,0 +1,189 @@
+/**PageBuilder.java**/
+/*To get header:*/
+SELECT header FROM webpages WHERE w_ID = website_ID;
+
+/*To get footer: */
+SELECT footer FROM webpages WHERE w_ID = website_ID; 
+
+/*To get content: */
+SELECT textual_content FROM regular_content WHERE w_ID = website_ID;
+
+/******************************************************************************************/
+/** Adding admin/guest/registered user/website admin **/
+
+/*guest*/
+INSERT INTO id_center(username, guest, registered_user, administrator, website_admin) values ( username, 1, 0, 0, 0);
+SELECT g_ID FROM id_center WHERE username = username;
+INSERT INTO registered_users ( g_ID, username, firstname, lastname, email, password, w_ID ) values ( g_ID, username, fname, lname, email, password, w_ID);
+
+/*registered_user*/
+INSERT INTO id_center(username, guest, registered_user, administrator, website_admin) values ( username, 0, 1, 0, 0);
+SELECT g_ID FROM id_center WHERE username = username;
+INSERT INTO registered_users ( g_ID, username, firstname, lastname, email, password, w_ID ) values ( g_ID, username, fname, lname, email, password, w_ID);
+
+/*admin*/
+INSERT INTO id_center(username, guest, registered_user, administrator, website_admin) values ( username, 0, 0, 1, 0);
+SELECT g_ID FROM id_center WHERE username = username;
+INSERT INTO administrators (username, firstname, lastname, password, email, g_ID) VALUES (username, fname, lname, password, email, g_ID);
+
+/*website_admin*/
+INSERT INTO id_center(username, guest, registered_user, administrator, website_admin) values ( username, 0, 0, 0, 1);
+SELECT g_ID FROM id_center WHERE username = username;
+INSERT INTO website_admin (g_ID, w_ID, username, firstname, lastname, password, email) values (g_ID, w_ID, username, fname, lname, password, email);
+
+/******************************************************************************************/
+/** Deleting guest/registered_user/admin/website_admin **/
+
+/* guest/user */
+DELETE FROM registerd_users WHERE userusername = "username";
+DELETE FROM id_center WHERE userusername = "username";
+
+/* admin */
+DELETE FROM administrators WHERE username = "username";
+DELETE FROM id_center WHERE g_ID = g_ID;
+
+/* website admin*/
+DELETE FROM administrators WHERE username = "username";
+DELETE FROM id_center WHERE g_ID = g_ID;
+/******************************************************************************************/
+/** checking permissions **/
+/* 1 should indicate the user is of this type, 0 should indicate they aren't */
+
+/* checking if user is a guest */
+SELECT guest FROM id_center WHERE g_ID = g_ID;
+
+/* checking if user is a registered_user */
+SELECT registered_user FROM id_center WHERE g_ID = g_ID;
+
+/* checking if user is an administrator */
+SELECT administrator FROM id_center WHERE g_ID = g_ID;
+
+/* checking if user is a website_admin */
+SELECT website_admin FROM id_center WHERE g_ID = g_ID;
+
+
+/******************************************************************************************/
+/** Add/delete post/image **/
+
+/*adding a post*/
+INSERT INTO posts (g_ID, title, content) VALUES (g_ID, title, content);
+/*adding an image*/
+INSERT INTO images (post_ID, location, w_ID) VALUES (post_ID, "location", w_ID);
+
+/*delete post*/
+DELETE FROM posts WHERE post_ID = post_ID;
+/*delete image*/
+DELETE FROM images WHERE post_ID = post_ID;
+
+/******************************************************************************************/
+/** creating site, changing css templates, delete a site **/
+
+/*creating a site*/
+INSERT INTO charity_sites (url) VALUES ( "url" )); 
+SELECT w_ID FROM charity_sites;
+INSERT INTO website (w_ID, g_ID);
+
+/*changing template*/
+UPDATE website SET t_ID = t_ID WHERE w_ID = w_ID;
+
+/*changing css template*/
+UPDATE website SET c_ID = c_ID WHERE w_ID = w_ID;
+
+/*Delete a site*/
+DELETE FROM website WHERE w_ID = w_ID;
+DELETE FROM charity_sites WHERE w_ID = w_ID;
+
+/******************************************************************************************/
+/**Create/Delete/Edit page & header/footer **/
+
+/*create a page - header and footer can be added at this stage also*/ 
+INSERT INTO webpages (w_ID) VALUES (w_ID);
+/*delete a page*/
+DELETE FROM webpages WHERE p_ID = p_ID;
+
+/*Add header*/
+INSERT INTO webpages (header) VALUES header;
+
+/*Add footer*/
+INSERT INTO webpages (footer) VALUES footer;
+
+/*Edit header*/
+UPDATE webpages SET header = header WHERE w_ID = w_ID;
+
+/*Edit footer*/
+UPDATE webpages SET footer = footer WHERE w_ID = w_ID;
+
+/******************************************************************************************/
+/**Adding, deleting, editing bank details**/
+
+/*adding bank details*/
+INSERT INTO bank_details ( w_ID, account_username, sort_code, account_num ) VALUES ( w_ID, account_username, sort_code, account_num );
+
+/*updating bank_details*/
+UPDATE bank_details SET (account_username = account_username, sort_code = sort_code, account_num = account_num) WHERE (w_ID = w_ID);
+
+/*deleting all bank details*/
+DELETE FROM bank_details WHERE w_ID = w_ID;
+
+/******************************************************************************************/
+/** Adding to lost&found **/
+
+/*add a post to L&F when animal is lost (lost = 1 should indicate animal is lost)*/
+INSERT INTO lost_and_found (g_ID, p_ID, description, lost) VALUES ( g_ID, p_ID, description, 1);
+
+/*add a post to L&F when animal is found (lost = 0 should indicate animal is found)*/
+INSERT INTO lost_and_found (g_ID, p_ID, description, lost) VALUES ( g_ID, p_ID, description, 0);
+
+/* Delete post from L&F */
+DELETE FROM lost_and_found WHERE animal_ID = animal_ID;
+
+/*Update description of post in L&F*/
+UPDATE lost_and_found SET( description = newDescription) WHERE animal_ID = animal_ID;
+
+/******************************************************************************************/
+/** Add/delete/edit charity sections **/
+
+/* Add a section */
+INSERT INTO charity_sections ( name, description ) VALUES ( name, description );
+
+/* Editing a section */
+UPDATE charity_sections SET ( name = newName )  WHERE name = currentName;
+UPDATE charity_sections SET ( description = newDescription )  WHERE name = name;
+
+/* Delete a section */
+DELETE FROM charity_sections WHERE name = name;
+
+/******************************************************************************************/
+/**Handling Donaitons**/
+
+/*New donation by anonymous person*/
+INSERT INTO donations (section_ID, anonymous, amount, d_comment) VALUES (section_ID, 1, amount, d_comment);
+update donations set total_donations = total_donations + newDonation
+
+/*Donation by known person*/
+INSERT INTO donations ( name, address, section_ID, anonymous, d_comment, amount) VALUES (name, address, section_ID, 0, d_comment, amount );
+UPDATE donations SET total_donations = total_donations + newDonation
+
+/******************************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
