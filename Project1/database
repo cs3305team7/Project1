@@ -96,7 +96,8 @@ CREATE TABLE bank_details
 	account_name VARCHAR(255),
 	sort_code VARCHAR(30),
 	account_num VARCHAR(30),
-	PRIMARY KEY( account_num)
+	w_ID INT(255)NOT NULL,
+	PRIMARY KEY( account_num )
 );
 
 DROP TABLE IF EXISTS donations;
