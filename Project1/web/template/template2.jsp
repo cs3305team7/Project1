@@ -34,12 +34,13 @@
                         <% out.print(p.Get("PICS"));%>
                     </aside>
 
-
-                    <div id="CONTENT">
-                        <% out.print(p.Get("CONTENT"));%>
-                    </div>
-                    <div id="CONTENT2">
-                        <% out.print(p.Get("CONTENT"));%>
+		    <div id = "MAIN">
+                    	<div id="CONTENT">
+                        	<% out.print(p.Get("CONTENT"));%>
+                    	</div>
+                    	<div id="CONTENT2">
+                        	<% out.print(p.Get("CONTENT"));%>
+                    	</div>
                     </div>
                     <footer id="FOOTER">
                     	<% out.print(p.Get("FOOTER"));%>
