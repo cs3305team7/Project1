@@ -14,7 +14,7 @@
     </head>
     <body>
         <div id="wrapper">
-        <h1>Welcome User</h1>
+            <h1>Welcome <%out.println((String)session.getAttribute("FNAME"));%></h1>
         <p>You are now a couple steps away from setting up your Website!</p>
         <a href="editHeader_footer.jsp" class="btn">Step 1</a>
         <a href="editTemplate.jsp" class="btn">Step 2</a>

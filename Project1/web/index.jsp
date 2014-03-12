@@ -75,6 +75,14 @@
                             <td><input type="text" name="txtLName"/></td>
                     </tr>
                     <tr>
+                             <td>UserName</td>
+                            <td><input type="text" name="txtUName"/></td>
+                    </tr>
+                    <tr>
+                            <td>Charity Name</td>
+                            <td><input type="text" name="txtCharityName"></td>
+                    </tr>
+                    <tr>
                             <td>Email</td>
                             <td><input type="text" name="txtEmail"></td>
                     </tr>

@@ -20,7 +20,22 @@ public class ErrorRetriever extends DOMParser{
     private DOMParser DOM;
     public final static String ERRORS_FILE="";
     public static enum Error{
-        TEST
+        TEST,WEBDIR_NOT_MADE,DATABASE_CONNECTION;
+        
+        @Override
+        public String toString(){
+        
+            switch(this){
+            case TEST:
+                return "TEST";
+            case WEBDIR_NOT_MADE:
+                return "DIR_NOT_MADE";
+            case DATABASE_CONNECTION:
+                    return "DATABASE_CONNECTION";
+            default:
+                 return "";
+            }
+        }
     }
     
     
@@ -29,13 +44,8 @@ public class ErrorRetriever extends DOMParser{
         
     }
     public String getErrString(Error err){
-        String errRequired;
-        switch(err){
-            case TEST:
-                errRequired="TEST";
-                break;
-            default:errRequired=""; break;
-        }
+        String errRequired=err.toString();
+       
          NodeList nodes= getErrorTags();
          Element e;
          for(int i=0;i<nodes.getLength();i++){
