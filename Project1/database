@@ -4,6 +4,7 @@ CREATE TABLE id_center
 	name VARCHAR(255) NOT NULL,
 	g_ID INT AUTO_INCREMENT,
 	guest INT(1) NOT NULL,
+	registered_user INT(1)NOT NULL,
 	administrator INT(1) NOT NULL,
 	website_admin INT(1) NOT NULL,
 	registered_user INT(1) NOT NULL,
