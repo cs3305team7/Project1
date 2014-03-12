@@ -38,11 +38,10 @@
                     <div id="CONTENT">
                         <% out.print(p.Get("CONTENT"));%>
                     </div>
+                    <footer id="FOOTER">
+                    	<% out.print(p.Get("FOOTER"));%>
+		    </footer>
 		</div> <!--end of wrapper-->
-		
-                <footer id="FOOTER">
-                    <% out.print(p.Get("FOOTER"));%>
-		</footer>
 	</body>
 </html>
 
