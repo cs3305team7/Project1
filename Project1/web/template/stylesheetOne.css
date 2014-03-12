@@ -1,0 +1,184 @@
+/* 
+    Document   : stylesheet
+    Created on : Mar 12, 2014, 12:35:08 PM
+    Author     : tony
+    Description:
+        Purpose of the stylesheet follows.
+        To style the two column layout.
+*/
+root { 
+    display: block;
+}
+body    { 
+    background-image:url('../images/background.jpg');
+    background-size: cover;
+}
+#wrapper    {
+    width: 100%;
+    margin-top: 80px;
+    background-color: #C0C0C0;
+    border: 2px solid #6D6968;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+header  {
+
+    margin-right: auto;
+    background-color: #C0C0C0;
+    text-align: left;
+}
+aside  {
+    background: #ff0000;
+    float: right;
+    width: 100%;
+}
+footer {
+    clear: left;
+    clear: right;
+    background-color: #6f6f6f;
+    text-align: center;
+}
+
+
+@media screen and (min-width: 720px)
+{
+
+    #wrapper
+    {
+        width: 80%;
+        margin-left: 10%;
+        background-color: #626444; 
+    }
+    #CONTENT    {
+        clear: left;
+        clear: right;
+    }
+    aside  {
+        width: 50%;
+    }
+    figure img  {
+        width: natural;
+    }
+
+}
+@media screen and (min-width: 1024px)
+{
+
+    #wrapper    {
+        background-color: #ffffff; /*white*/
+    }
+    #CONTENT    {
+        clear: none;
+    }
+    aside   {
+        width: 30%;
+    }
+}
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:700);
+#EDITABLENAV {
+  background: #f96e5b;
+  width: auto;
+}
+#EDITABLENAV ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  display: block;
+  zoom: 1;
+}
+#EDITABLENAV ul:after {
+  content: ' ';
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+#EDITABLENAV ul li {
+  float: left;
+  display: block;
+  padding: 0;
+}
+#EDITABLENAV ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  display: block;
+  padding: 15px 25px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 14px;
+  position: relative;
+  -webkit-transition: color .25s;
+  -moz-transition: color .25s;
+  -ms-transition: color .25s;
+  -o-transition: color .25s;
+  transition: color .25s;
+}
+#EDITABLENAV ul li a:hover {
+  color: #333333;
+}
+#EDITABLENAV ul li a:hover:before {
+  width: 100%;
+}
+#EDITABLENAV ul li a:after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: -3px;
+  top: 19px;
+  height: 6px;
+  width: 6px;
+  background: #ffffff;
+  opacity: .5;
+}
+#EDITABLENAV ul li a:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0;
+  background: #333333;
+  -webkit-transition: width .25s;
+  -moz-transition: width .25s;
+  -ms-transition: width .25s;
+  -o-transition: width .25s;
+  transition: width .25s;
+}
+#EDITABLENAV ul li.last > a:after,
+#EDITABLENAV ul li:last-child > a:after {
+  display: none;
+}
+#EDITABLENAV ul li.active a {
+  color: #333333;
+}
+#EDITABLENAV ul li.active a:before {
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  #EDITABLENAV ul li {
+    float: none;
+  }
+  #EDITABLENAV ul li a {
+    width: 100%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  #EDITABLENAV ul li a:after {
+    display: none;
+  }
+  #EDITABLENAV ul li a:before {
+    height: 1px;
+    background: #ffffff;
+    width: 100%;
+    opacity: .2;
+  }
+  #EDITABLENAV ul li.last > a:before,
+  #EDITABLENAV ul li:last-child > a:before {
+    display: none;
+  }
+}

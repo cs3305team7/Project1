@@ -15,7 +15,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>CMS TEMPLATE1</title>
-        <link rel="stylesheet" href=<%out.print(p.getStyles());%> <!--href="../../stylesheets/stylesheetOne.css"--> />
+        <link rel="stylesheet" href=<%out.print(p.getStyles());%> <!--href="../../stylesheets/stylesheetTwo.css"--> />
 	</head>
 	<body>
                 
@@ -34,17 +34,18 @@
                         <% out.print(p.Get("PICS"));%>
                     </aside>
 
-
-                    <div id="CONTENT">
-                        <% out.print(p.Get("CONTENT"));%>
+		    <div id = "MAIN">
+                    	<div id="CONTENT">
+                        	<% out.print(p.Get("CONTENT"));%>
+                    	</div>
+                    	<div id="CONTENT2">
+                        	<% out.print(p.Get("CONTENT"));%>
+                    	</div>
                     </div>
-                    <div id="CONTENT2">
-                        <% out.print(p.Get("CONTENT"));%>
-                    </div>
+                    <footer id="FOOTER">
+                    	<% out.print(p.Get("FOOTER"));%>
+		    </footer>
 		</div> <!--end of wrapper-->
 
-                <footer id="FOOTER">
-                    <% out.print(p.Get("FOOTER"));%>
-		</footer>
 	</body>
 </html>
