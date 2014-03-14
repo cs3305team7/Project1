@@ -13,8 +13,26 @@ public class User {
     private String lname;
     private String email;
     private String password;
+    private String uname;
     private int id;
+    private String charity;
 
+
+    public User(){
+        super();
+    }
+    public User(String uname,String fname,String lname,
+            String email,String password,String Charity){
+        this.uname=uname;
+        this.fname=fname;
+        this.email=email;
+        this.lname=lname;
+        this.password=password;
+        this.charity=Charity;
+    }
+    public String getUname(){
+        return uname;
+    }
     public String getFname() {
         return fname;
     }
@@ -54,4 +72,6 @@ public class User {
     public void setId(int id) {
         this.id = id;
     }
+    
+    
 }

@@ -20,7 +20,8 @@ public class ErrorRetriever extends DOMParser{
     private DOMParser DOM;
     public final static String ERRORS_FILE="";
     public static enum Error{
-        TEST,WEBDIR_NOT_MADE,DATABASE_CONNECTION;
+        TEST,WEBDIR_NOT_MADE,DATABASE_CONNECTION,
+        CHARITY_ALREADY_EXISTS;
         
         @Override
         public String toString(){
@@ -32,8 +33,10 @@ public class ErrorRetriever extends DOMParser{
                 return "DIR_NOT_MADE";
             case DATABASE_CONNECTION:
                     return "DATABASE_CONNECTION";
+            case CHARITY_ALREADY_EXISTS:
+                    return "CHARITY_ALREADY_EXISTS";
             default:
-                 return "";
+                 return "DEFAULT_ERROR";
             }
         }
     }

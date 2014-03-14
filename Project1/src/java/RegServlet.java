@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -99,7 +100,18 @@ public class RegServlet extends HttpServlet {
             boolean allClear=false;
             DBManager dbman = new DBManager();
             try{
-                dbman.query("");
+              ResultSet rs =  dbman.query("select * from "
+                      + "registered_users where 'username'="+UserName+";");
+              ResultSet rs2=dbman.query("select * "
+                      + "from charity_sites where 'url'="+charityName+";");
+                      if(!rs.first() && !rs2.first()){
+                          allClear=true;
+                          
+                      } else {
+                          session.setAttribute("Error",
+                        XMLParser.ErrorRetriever.Error.CHARITY_ALREADY_EXISTS);
+                response.sendRedirect("register.jsp");
+                      }
             }catch(Exception e){
                 session.setAttribute("Error",
                         XMLParser.ErrorRetriever.Error.DATABASE_CONNECTION);
@@ -108,15 +120,17 @@ public class RegServlet extends HttpServlet {
             //ASSUME PREV IS TRUE
            if(allClear){   
                     File f= new File(PATH+charityName); 
-                    session.setAttribute("FNAME", fname);
+                    
                     try{
 
                         if( f.mkdir()){
-                            session.setAttribute("FNAME", fname);
-                            File[] files=f.listFiles();
-                           File theme1= new File("");
-                          
-                            Files.copy(theme1.toPath(),f.toPath());
+                            User user =new User(UserName,fname, lname,
+                            email, password,charityName);
+                            session.setAttribute("USER", user);
+                            //SET SESSION VARS
+                            Register.addWebsite(charityName);
+                            Register.addWebAdmin(user);
+                            response.sendRedirect("welcome.jsp");
                         }
                         else{
                             session.setAttribute("Error",
@@ -135,7 +149,7 @@ public class RegServlet extends HttpServlet {
                 sets.setPassword(password);
                 try {
                     //manager.Insert(sets);
-                    response.sendRedirect("welcome.jsp");
+                    //response.sendRedirect("welcome.jsp");
                 }/* catch (SQLException ex) {
                    // Logger.getLogger(RegServlet.class.getName()).
                 log(Level.SEVERE, null, ex);

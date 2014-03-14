@@ -69,5 +69,14 @@ public class DBManager {
         return retval;
       }
       
+      /*
+      * returns 0 if no rows affected or the number of affected rows
+      */
+      public int update(String sql)throws SQLException{
+          con=getConnection();
+          int retval = con.prepareStatement(sql).executeUpdate();
+          con.close();
+          return retval;
+      }
     }
 
