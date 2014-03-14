@@ -33,6 +33,9 @@ public class User {
     public String getUname(){
         return uname;
     }
+    public String getCharityName(){
+        return charity;
+    }
     public String getFname() {
         return fname;
     }

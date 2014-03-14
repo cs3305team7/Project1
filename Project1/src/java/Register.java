@@ -32,22 +32,33 @@ public class Register {
       // INSERT INTO id_center(username, guest, registered_user, administrator, website_admin) values ( username, 0, 0, 0, 1);
 //SELECT g_ID FROM id_center WHERE username = username;
 //INSERT INTO website_admin (g_ID, w_ID, username, firstname, lastname, password, email) values (g_ID, w_ID, username, fname,
+      //add the user createing his global id
        String regInsert="INSERT INTO id_center(username, guest,"
                + " registered_user, administrator, website_admin) values ( "
                +user.getUname()+", 0, 0, 0, 1);";
         try{
          int result =  db.update(regInsert);
          if(result != 0){
+             //if succesfu; get the global ID
             ResultSet rs= db.query("SELECT g_ID FROM id_center WHERE username = "
                     + ""+user.getUname()+";");
                     if(rs.first()){
                         int g_id=rs.getInt("g_ID");
                         user.setId(g_id);
                         //get website_id
-                        db.update("INSERT INTO website_admin "
+            ResultSet resset= db.query("SELECT w_ID from charity_sites"
+                    + " WHERE url="+user.getCharityName()+";");
+                        if(resset.first()){
+                           int w_ID= resset.getInt("w_ID");
+                       int complete= db.update("INSERT INTO website_admin "
                                 + "(g_ID, w_ID, username,firstname, "
                                 + "lastname, password, email) "
-                                + "values ("+g_id+", w_ID, username, fname,);");
+                                + "values ("+g_id+","+ w_ID+","
+                                + user.getUname()+"," +user.getFname()+","
+                                + user.getLname()+","+user.getPassword()+","
+                                +user.getEmail()+");");
+                       success=complete==1;//value expected from db.update()
+                        }
                     }
          }
        }catch(SQLException e){
