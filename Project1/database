@@ -123,9 +123,10 @@ DROP TABLE IF EXISTS charity_sections;
 CREATE TABLE charity_sections
 (
 	section_ID INT AUTO_INCREMENT,
-	name VARCHAR(30),
-	description TEXT,
-	PRIMARY KEY( section_ID)
+	name VARCHAR(30) NOT NULL,
+	description TEXT NOT NULL,
+	w_ID INT NOT NULL,
+	PRIMARY KEY( section_ID )
 );
 
 DROP TABLE IF EXISTS images;
