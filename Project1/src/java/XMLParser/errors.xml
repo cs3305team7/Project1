@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE mobileInformation SYSTEM "errors.dtd">
+<error>
+	<name>WRONG_PASSWORD</name>
+	<value>Invalid Password. Please re-enter the correct password.</value>
+</error>
+
+<error>
+	<name>UNAVAILABLE_USERNAME</name>
+	<value>This username is unavailable, please enter a different username.</value>
+</error>
+
+<error>
+	<name>WRONG_PASSWORD</name>
+	<value>You've entered the wrong username, please enter your username.</value>
+</error>
+
+<error>
+	<name>CHARITY_ALREADY_EXISTS</name>
+	<value>This URL is unavailable, please enter a different URL.</value>
+</error>
+
+<error>
+	<name>PERMISSION_DENIED</name>
+	<value>You don't have permission to carry out this action.</value>
+</error>
+
+<error>
+	<name>PAGE_NOT_FOUND</name>
+	<value>Error 404, page not found.</value>
+</error>
+
+<error>
+	<name>SITE_OVERCAPICTY</name>
+	<value>Site is over over capacity, please re-visit the site in a few minutes.</value>
+</error>
+
+
+<error>
+	<name>DATABASE_CONNECTION</name>
+	<value>Sorry, a tecnical error occurred. Please try again later.</value>
+</error>
+
+<error>
+	<name>WEBDIR_NOT_MADE</name>
+	<value></value>
+</error>
+
+<error>
+	<name>TEST</name>
+	<value>This is a test</value>
+</error>
+
+<error>
+	<name>WEBDIR_NOT_MADE</name>
+	<value>WARNING: Directory not made</value>
+</error>
+
+<error>
+	<name>UNCOMPLETED_FORM</name>
+	<value>You have not filled out all the form, please enter fill in all the information.</value>
+</error>
