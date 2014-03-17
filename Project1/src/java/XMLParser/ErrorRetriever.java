@@ -1,4 +1,3 @@
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -21,7 +20,9 @@ public class ErrorRetriever extends DOMParser{
     public final static String ERRORS_FILE="";
     public static enum Error{
         TEST,WEBDIR_NOT_MADE,DATABASE_CONNECTION,
-        CHARITY_ALREADY_EXISTS;
+        CHARITY_ALREADY_EXISTS, UNAVAILABLE_USERNAME, 
+        WRONG_PASSWORD, PERMISSION_DENIED, PAGE_NOT_FOUND, 
+        SITE_OVERCAPICTY, UNCOMPLETED_FORM;
         
         @Override
         public String toString(){
@@ -30,11 +31,23 @@ public class ErrorRetriever extends DOMParser{
             case TEST:
                 return "TEST";
             case WEBDIR_NOT_MADE:
-                return "DIR_NOT_MADE";
+                return "WEBDIR_NOT_MADE";
             case DATABASE_CONNECTION:
                     return "DATABASE_CONNECTION";
             case CHARITY_ALREADY_EXISTS:
                     return "CHARITY_ALREADY_EXISTS";
+            case    UNAVAILABLE_USERNAME
+                    return "UNAVAILABLE_USERNAME";
+            case    WRONG_PASSWORD
+                    return  "WRONG_PASSWORD";
+            case    PERMISSION_DENIED
+                    return  "PERMISSION_DENIED";
+            case    PAGE_NOT_FOUND""
+                    return  "PAGE_NOT_FOUND";
+            case    SITE_OVERCAPICTY
+                    return  "SITE_OVERCAPICTY";
+            case    UNCOMPLETED_FORM
+                    return "UNCOMPLETED_FORM";
             default:
                  return "DEFAULT_ERROR";
             }
